@@ -1,0 +1,1230 @@
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamsafar — Find Your Vibrant Soul Connection</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,800&family=Unbounded:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Unbounded', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        neonPink: '#FF007F',
+                        electricPurple: '#8A2BE2',
+                        sunsetOrange: '#FF4500',
+                        cyberYellow: '#FFE600',
+                        brightCyan: '#00F5D4',
+                        darkBase: '#0F0826',
+                        cardDark: '#1A103C',
+                    },
+                    boxShadow: {
+                        'neon-pink': '0 0 35px -5px rgba(255, 0, 127, 0.6)',
+                        'neon-orange': '0 0 35px -5px rgba(255, 69, 0, 0.6)',
+                        'neon-cyan': '0 0 35px -5px rgba(0, 245, 212, 0.6)',
+                        'neon-purple': '0 0 45px -5px rgba(138, 43, 226, 0.7)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0c0721;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(26, 16, 60, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Vibrant Gradient Gradients */
+        .gradient-text-fire {
+            background: linear-gradient(135deg, #FFE600 0%, #FF007F 50%, #8A2BE2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-cyan {
+            background: linear-gradient(135deg, #00F5D4 0%, #00BBF9 50%, #FF007F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gradient-hero {
+            background: radial-gradient(circle at 20% 30%, rgba(255, 0, 127, 0.35) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 245, 212, 0.3) 0%, transparent 45%),
+                        radial-gradient(circle at 50% 80%, rgba(138, 43, 226, 0.4) 0%, transparent 60%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c0721;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#FF007F, #8A2BE2);
+            border-radius: 5px;
+        }
+
+        /* Swipe Card Stack Styles */
+        .profile-card {
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+            touch-action: none;
+            user-select: none;
+        }
+
+        .swipe-left {
+            transform: translateX(-150%) rotate(-25deg) !important;
+            opacity: 0 !important;
+        }
+
+        .swipe-right {
+            transform: translateX(150%) rotate(25deg) !important;
+            opacity: 0 !important;
+        }
+
+        .swipe-super {
+            transform: translateY(-150%) scale(1.1) !important;
+            opacity: 0 !important;
+        }
+
+        /* Noise Texture Layer */
+        .noise-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-white selection:bg-neonPink selection:text-white noise-bg">
+
+    <!-- FLOATING BG ELEMENTS -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-neonPink/30 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute top-1/2 -right-40 w-[30rem] h-[30rem] bg-electricPurple/30 rounded-full blur-[140px] animate-pulse-slow"></div>
+        <div class="absolute -bottom-20 left-1/3 w-[32rem] h-[32rem] bg-brightCyan/20 rounded-full blur-[150px]"></div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-white/10 px-4 md:px-8 py-3 transition-all duration-300" id="mainNav">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-neonPink via-sunsetOrange to-cyberYellow p-0.5 shadow-neon-pink group-hover:scale-105 transition-transform duration-300">
+                    <div class="w-full h-full bg-darkBase rounded-[14px] flex items-center justify-center">
+                        <i class="fa-solid fa-fire-flame-curved text-2xl text-transparent bg-clip-text bg-gradient-to-r from-neonPink to-cyberYellow"></i>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-heading font-black text-2xl md:text-3xl tracking-wider text-white">HAMSAFAR<span class="text-neonPink">.</span></span>
+                    <span class="block text-[10px] tracking-widest text-brightCyan font-semibold uppercase -mt-1">Vibe Together</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-8 font-semibold text-sm">
+                <a href="#discover" class="hover:text-brightCyan transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-sparkles text-cyberYellow text-xs"></i> Discover
+                </a>
+                <a href="#vibes" class="hover:text-neonPink transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-compact-disc text-neonPink text-xs"></i> Moods
+                </a>
+                <a href="#spark-calculator" class="hover:text-sunsetOrange transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-bolt text-sunsetOrange text-xs"></i> Spark Meter
+                </a>
+                <a href="#roulette" class="hover:text-cyberYellow transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-dice text-brightCyan text-xs"></i> Date Roulette
+                </a>
+            </div>
+
+            <!-- Action CTA -->
+            <div class="flex items-center gap-3">
+                <button onclick="openModal('loginModal')" class="hidden sm:inline-flex px-5 py-2.5 rounded-full font-bold text-sm bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300">
+                    Log In
+                </button>
+                <button onclick="openModal('signupModal')" class="relative group overflow-hidden px-6 py-2.5 rounded-full font-heading text-xs font-black tracking-wider uppercase bg-gradient-to-r from-neonPink via-sunsetOrange to-cyberYellow text-white shadow-neon-pink hover:shadow-neon-orange hover:scale-105 active:scale-95 transition-all duration-300">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Get Started <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                    <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative pt-32 pb-20 md:pt-40 md:pb-32 px-4 md:px-8 bg-gradient-hero overflow-hidden z-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Hero Text -->
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-neonPink/40 text-xs md:text-sm font-bold tracking-wide animate-bounce">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brightCyan animate-ping"></span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brightCyan to-cyberYellow">148,920 Lovers Matched This Week!</span>
+                    <i class="fa-solid fa-heart text-neonPink"></i>
+                </div>
+
+                <h1 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl leading-[1.1] tracking-tight">
+                    NO BORING DATES.<br>
+                    <span class="gradient-text-fire">FIND YOUR REAL</span><br>
+                    <span class="gradient-text-cyan underline decoration-wavy decoration-neonPink/60">HAMSAFAR.</span>
+                </h1>
+
+                <p class="text-gray-300 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                    The ultra-vibrant companion finder for modern romantics, midnight adventurers, and soulful vibers. Ditch awkward bios—match on high-voltage chemistry!
+                </p>
+
+                <!-- Search / Intent Pills -->
+                <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3">
+                    <div class="glass-card px-4 py-2.5 rounded-2xl flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-location-dot text-neonPink"></i>
+                        <span class="text-gray-300">Near You:</span>
+                        <span class="font-bold text-cyberYellow underline cursor-pointer" onclick="notifyLocation()">Mumbai / New Delhi</span>
+                    </div>
+                    <div class="glass-card px-4 py-2.5 rounded-2xl flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-wand-magic-sparkles text-brightCyan"></i>
+                        <span class="text-gray-300">Looking For:</span>
+                        <span class="font-bold text-white">Spontaneous Soulmate ✨</span>
+                    </div>
+                </div>
+
+                <!-- CTAs -->
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#discover" class="w-full sm:w-auto text-center px-8 py-4 rounded-2xl font-heading font-bold text-sm tracking-wider uppercase bg-gradient-to-r from-neonPink to-electricPurple shadow-neon-pink hover:scale-105 transition-transform flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-fire text-lg text-cyberYellow"></i> Start Swiping Free
+                    </a>
+                    <a href="#spark-calculator" class="w-full sm:w-auto text-center px-8 py-4 rounded-2xl font-heading font-bold text-sm tracking-wider uppercase glass-panel border border-white/20 hover:border-brightCyan text-white hover:text-brightCyan transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-gamepad text-brightCyan"></i> Test Spark Meter
+                    </a>
+                </div>
+
+                <!-- Social Proof Badges -->
+                <div class="pt-6 flex items-center justify-center lg:justify-start gap-4 text-xs text-gray-400">
+                    <div class="flex -space-x-3">
+                        <img class="w-9 h-9 rounded-full border-2 border-neonPink object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Avatar">
+                        <img class="w-9 h-9 rounded-full border-2 border-brightCyan object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80" alt="Avatar">
+                        <img class="w-9 h-9 rounded-full border-2 border-cyberYellow object-cover" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80" alt="Avatar">
+                        <img class="w-9 h-9 rounded-full border-2 border-sunsetOrange object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Avatar">
+                    </div>
+                    <span><strong class="text-white">4.9/5 Stars</strong> by 2.4 Million Happy Hamsafars</span>
+                </div>
+            </div>
+
+            <!-- Right Hero Interactive Cards Stack -->
+            <div class="lg:col-span-5 relative flex justify-center items-center">
+                <!-- Decorative back glows -->
+                <div class="absolute w-72 h-72 bg-neonPink rounded-full filter blur-3xl opacity-40 -top-10 -left-10"></div>
+                <div class="absolute w-72 h-72 bg-brightCyan rounded-full filter blur-3xl opacity-40 -bottom-10 -right-10"></div>
+                
+                <!-- Floating Badges -->
+                <div class="absolute -top-6 -right-2 z-30 glass-card px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-cyberYellow/50 animate-float-slow">
+                    <span class="text-2xl">🔥</span>
+                    <div>
+                        <div class="text-[10px] text-gray-300 font-bold uppercase">Compatibility</div>
+                        <div class="text-sm font-heading font-black text-cyberYellow">99.4% Match!</div>
+                    </div>
+                </div>
+
+                <div class="absolute -bottom-6 -left-6 z-30 glass-card px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-brightCyan/50 animate-bounce">
+                    <span class="text-2xl">🎧</span>
+                    <div>
+                        <div class="text-[10px] text-gray-300 font-bold uppercase">Vibe Anthem</div>
+                        <div class="text-xs font-bold text-brightCyan">Pasoori x Synthwave</div>
+                    </div>
+                </div>
+
+                <!-- Main Card Preview Mockup -->
+                <div class="relative w-full max-w-sm h-[500px] rounded-[32px] overflow-hidden border-2 border-white/20 shadow-2xl bg-cardDark group">
+                    <img id="heroCardImage" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&auto=format&fit=crop&q=80" alt="Featured Hamsafar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    
+                    <!-- Card Gradient Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBase via-darkBase/40 to-transparent flex flex-col justify-end p-6">
+                        
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-neonPink px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-neon-pink flex items-center gap-1">
+                                <i class="fa-solid fa-bolt"></i> Highly Active
+                            </span>
+                            <span class="glass-panel px-3 py-1 rounded-full text-xs font-semibold text-brightCyan">
+                                📍 Bandra, 2.4 km
+                            </span>
+                        </div>
+
+                        <h3 class="font-heading font-black text-3xl text-white flex items-center gap-2">
+                            Aanya, 24 <i class="fa-solid fa-circle-check text-brightCyan text-xl" title="Verified Vibe"></i>
+                        </h3>
+
+                        <p class="text-sm text-gray-200 line-clamp-2 mt-1 font-medium">
+                            "Looking for someone who will spontaneously eat midnight street biryani and argue about sci-fi films with me 🌙"
+                        </p>
+
+                        <!-- Interests Pills -->
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-white/15 text-xs font-semibold text-cyberYellow">🎨 Digital Art</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/15 text-xs font-semibold text-brightCyan">☕ Filter Coffee</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/15 text-xs font-semibold text-neonPink">🪩 Indie Raver</span>
+                        </div>
+
+                        <!-- Mini Floating Action Bar -->
+                        <div class="mt-4 flex items-center justify-between pt-3 border-t border-white/10">
+                            <button class="w-12 h-12 rounded-full bg-white/10 hover:bg-neonPink text-white text-lg flex items-center justify-center transition-all">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                            <button class="w-14 h-14 rounded-full bg-gradient-to-tr from-neonPink to-sunsetOrange text-white text-2xl flex items-center justify-center shadow-neon-pink hover:scale-110 active:scale-95 transition-all" onclick="triggerHeroMatch()">
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                            <button class="w-12 h-12 rounded-full bg-white/10 hover:bg-brightCyan hover:text-black text-white text-lg flex items-center justify-center transition-all">
+                                <i class="fa-solid fa-star"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- LIVE SWIPE SIMULATOR: "FIND YOUR HAMSAFAR" -->
+    <section id="discover" class="py-20 px-4 md:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-neonPink/20 border border-neonPink text-neonPink font-heading font-black text-xs uppercase tracking-widest mb-3">
+                    🔥 Real-Time Swiper
+                </div>
+                <h2 class="font-heading font-black text-3xl md:text-5xl text-white tracking-tight">
+                    SPARK YOUR <span class="gradient-text-fire">JOURNEY</span>
+                </h2>
+                <p class="text-gray-300 mt-3 text-base">
+                    Try the interactive deck! Swipe right to send love, left to pass, or top button for instant connection.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Match Deck (Left Col) -->
+                <div class="lg:col-span-7 flex flex-col items-center">
+                    
+                    <!-- Swipeable Card Container -->
+                    <div class="relative w-full max-w-md h-[540px] flex items-center justify-center" id="cardContainer">
+                        <!-- Cards will be dynamically injected here -->
+                    </div>
+
+                    <!-- Action Controls -->
+                    <div class="flex items-center gap-6 mt-6">
+                        <button onclick="handleSwipe('left')" title="Pass" class="w-16 h-16 rounded-full glass-card border-2 border-red-500/40 text-red-400 hover:bg-red-500 hover:text-white text-2xl flex items-center justify-center shadow-lg hover:scale-110 active:scale-90 transition-all">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <button onclick="handleSwipe('super')" title="Super Vibe" class="w-14 h-14 rounded-full glass-card border-2 border-cyberYellow/40 text-cyberYellow hover:bg-cyberYellow hover:text-black text-xl flex items-center justify-center shadow-lg hover:scale-110 active:scale-90 transition-all">
+                            <i class="fa-solid fa-bolt"></i>
+                        </button>
+                        <button onclick="handleSwipe('right')" title="Spark Connect" class="w-16 h-16 rounded-full bg-gradient-to-tr from-neonPink to-sunsetOrange text-white text-2xl flex items-center justify-center shadow-neon-pink hover:scale-110 active:scale-90 transition-all">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                        <button onclick="resetDeck()" title="Reset Deck" class="w-12 h-12 rounded-full glass-panel text-brightCyan hover:bg-brightCyan hover:text-black text-lg flex items-center justify-center transition-all">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </button>
+                    </div>
+
+                    <p class="text-xs text-gray-400 mt-4 text-center">
+                        <i class="fa-regular fa-keyboard text-neonPink"></i> Use Buttons above or simulate real-time sparks!
+                    </p>
+                </div>
+
+                <!-- Live Match Feed & Active Filter Stats (Right Col) -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-panel p-6 rounded-3xl border border-white/15">
+                        <h3 class="font-heading font-black text-xl text-white flex items-center gap-2 mb-4">
+                            <i class="fa-solid fa-fire text-sunsetOrange"></i> Live Spark Activity
+                        </h3>
+
+                        <div class="space-y-4" id="liveActivityFeed">
+                            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10 hover:border-neonPink transition-all">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" class="w-12 h-12 rounded-full object-cover border-2 border-neonPink" alt="avatar">
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold text-white">Rhea & Kabir just matched!</h4>
+                                    <p class="text-xs text-gray-400">Vibe: "90s Bollywood + Mountain Treks"</p>
+                                </div>
+                                <span class="text-xs text-neonPink font-bold">12s ago</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10 hover:border-brightCyan transition-all">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" class="w-12 h-12 rounded-full object-cover border-2 border-brightCyan" alt="avatar">
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold text-white">Arjun sent a SuperSpark to Tara</h4>
+                                    <p class="text-xs text-gray-400">Spark compatibility: 98%</p>
+                                </div>
+                                <span class="text-xs text-brightCyan font-bold">45s ago</span>
+                            </div>
+
+                            <div class="flex items-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/10 hover:border-cyberYellow transition-all">
+                                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&auto=format&fit=crop&q=80" class="w-12 h-12 rounded-full object-cover border-2 border-cyberYellow" alt="avatar">
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold text-white">Zoya completed Date Roulette</h4>
+                                    <p class="text-xs text-gray-400">Won: "Late Night Gelato Battle"</p>
+                                </div>
+                                <span class="text-xs text-cyberYellow font-bold">2m ago</span>
+                            </div>
+                        </div>
+
+                        <!-- Spark Booster Banner -->
+                        <div class="mt-6 p-4 rounded-2xl bg-gradient-to-r from-neonPink/30 via-sunsetOrange/30 to-cyberYellow/20 border border-neonPink/50 text-center">
+                            <p class="text-xs font-bold text-white">Want 3x More Meaningful Matches?</p>
+                            <button onclick="openModal('signupModal')" class="mt-2 w-full py-2.5 rounded-xl font-heading text-xs font-extrabold uppercase bg-white text-darkBase hover:bg-neonPink hover:text-white transition-all shadow-md">
+                                Activate Turbo Vibe ⚡
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORE BY VIBES SECTION -->
+    <section id="vibes" class="py-20 px-4 md:px-8 bg-cardDark/40 relative z-10 border-y border-white/10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-brightCyan font-heading font-black text-xs uppercase tracking-widest">Match by Chemistry</span>
+                    <h2 class="font-heading font-black text-3xl md:text-5xl text-white mt-2">
+                        EXPLORE BY <span class="gradient-text-cyan">VIBE HUBS</span>
+                    </h2>
+                </div>
+                <p class="text-gray-300 max-w-md text-sm">
+                    Don't start with "Hey what's up". Start with the exact madness you both crave together.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                
+                <!-- Vibe 1 -->
+                <div class="group relative rounded-3xl overflow-hidden glass-card p-4 hover:border-neonPink transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="filterVibeAlert('Chai & Rooftops')">
+                    <div class="h-28 rounded-2xl bg-gradient-to-br from-sunsetOrange to-neonPink flex items-center justify-center text-4xl mb-3 group-hover:scale-105 transition-transform">
+                        ☕
+                    </div>
+                    <h4 class="font-heading font-bold text-sm text-white">Chai Dates</h4>
+                    <p class="text-[11px] text-gray-400 mt-0.5">34.2k Singles</p>
+                    <div class="mt-2 flex items-center gap-1 text-[10px] text-cyberYellow font-bold">
+                        <span>Explore</span> <i class="fa-solid fa-arrow-right text-[8px] group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Vibe 2 -->
+                <div class="group relative rounded-3xl overflow-hidden glass-card p-4 hover:border-brightCyan transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="filterVibeAlert('Techno & Underground')">
+                    <div class="h-28 rounded-2xl bg-gradient-to-br from-brightCyan to-electricPurple flex items-center justify-center text-4xl mb-3 group-hover:scale-105 transition-transform">
+                        🪩
+                    </div>
+                    <h4 class="font-heading font-bold text-sm text-white">Rave Buddies</h4>
+                    <p class="text-[11px] text-gray-400 mt-0.5">28.9k Singles</p>
+                    <div class="mt-2 flex items-center gap-1 text-[10px] text-brightCyan font-bold">
+                        <span>Explore</span> <i class="fa-solid fa-arrow-right text-[8px] group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Vibe 3 -->
+                <div class="group relative rounded-3xl overflow-hidden glass-card p-4 hover:border-cyberYellow transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="filterVibeAlert('Foodie Crawls')">
+                    <div class="h-28 rounded-2xl bg-gradient-to-br from-cyberYellow to-sunsetOrange flex items-center justify-center text-4xl mb-3 group-hover:scale-105 transition-transform text-black">
+                        🌮
+                    </div>
+                    <h4 class="font-heading font-bold text-sm text-white">Food Street Crawl</h4>
+                    <p class="text-[11px] text-gray-400 mt-0.5">51.1k Singles</p>
+                    <div class="mt-2 flex items-center gap-1 text-[10px] text-cyberYellow font-bold">
+                        <span>Explore</span> <i class="fa-solid fa-arrow-right text-[8px] group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Vibe 4 -->
+                <div class="group relative rounded-3xl overflow-hidden glass-card p-4 hover:border-neonPink transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="filterVibeAlert('Midnight Drives')">
+                    <div class="h-28 rounded-2xl bg-gradient-to-br from-neonPink to-electricPurple flex items-center justify-center text-4xl mb-3 group-hover:scale-105 transition-transform">
+                        🌌
+                    </div>
+                    <h4 class="font-heading font-bold text-sm text-white">Night Drives</h4>
+                    <p class="text-[11px] text-gray-400 mt-0.5">42.7k Singles</p>
+                    <div class="mt-2 flex items-center gap-1 text-[10px] text-neonPink font-bold">
+                        <span>Explore</span> <i class="fa-solid fa-arrow-right text-[8px] group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Vibe 5 -->
+                <div class="group relative rounded-3xl overflow-hidden glass-card p-4 hover:border-brightCyan transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="filterVibeAlert('Gaming & Anime')">
+                    <div class="h-28 rounded-2xl bg-gradient-to-br from-electricPurple to-brightCyan flex items-center justify-center text-4xl mb-3 group-hover:scale-105 transition-transform">
+                        🎮
+                    </div>
+                    <h4 class="font-heading font-bold text-sm text-white">Co-op Gaming</h4>
+                    <p class="text-[11px] text-gray-400 mt-0.5">19.3k Singles</p>
+                    <div class="mt-2 flex items-center gap-1 text-[10px] text-brightCyan font-bold">
+                        <span>Explore</span> <i class="fa-solid fa-arrow-right text-[8px] group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Vibe 6 -->
+                <div class="group relative rounded-3xl overflow-hidden glass-card p-4 hover:border-cyberYellow transition-all duration-300 cursor-pointer transform hover:-translate-y-2" onclick="filterVibeAlert('Deep Conversations')">
+                    <div class="h-28 rounded-2xl bg-gradient-to-br from-sunsetOrange to-electricPurple flex items-center justify-center text-4xl mb-3 group-hover:scale-105 transition-transform">
+                        🕯️
+                    </div>
+                    <h4 class="font-heading font-bold text-sm text-white">Deep Talks</h4>
+                    <p class="text-[11px] text-gray-400 mt-0.5">63.8k Singles</p>
+                    <div class="mt-2 flex items-center gap-1 text-[10px] text-cyberYellow font-bold">
+                        <span>Explore</span> <i class="fa-solid fa-arrow-right text-[8px] group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE "HAMSAFAR SPARK CALCULATOR" -->
+    <section id="spark-calculator" class="py-20 px-4 md:px-8 relative z-10">
+        <div class="max-w-5xl mx-auto glass-panel p-8 md:p-12 rounded-[40px] border-2 border-neonPink/40 shadow-neon-purple relative overflow-hidden">
+            
+            <div class="absolute -top-24 -right-24 w-60 h-60 bg-neonPink/30 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-60 h-60 bg-brightCyan/30 rounded-full blur-3xl"></div>
+
+            <div class="relative z-10 text-center max-w-2xl mx-auto mb-10">
+                <span class="px-4 py-1.5 rounded-full bg-cyberYellow/20 text-cyberYellow border border-cyberYellow text-xs font-heading font-bold uppercase tracking-wider">
+                    ⚡ Mini Compatibility Lab
+                </span>
+                <h2 class="font-heading font-black text-3xl md:text-5xl text-white mt-3">
+                    HAMSAFAR <span class="gradient-text-fire">SPARK METER</span>
+                </h2>
+                <p class="text-gray-300 mt-2 text-sm md:text-base">
+                    Choose your dream date style and personality quirk to see our AI Spark Rating!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Input Controls -->
+                <div class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-heading font-bold text-gray-300 uppercase mb-2">1. Your Ideal First Date</label>
+                        <select id="calcDateStyle" class="w-full bg-darkBase/80 border border-white/20 rounded-2xl px-4 py-3.5 text-sm font-semibold focus:border-neonPink focus:outline-none transition-all">
+                            <option value="95">Late night street food & 3am drive</option>
+                            <option value="92">Arcade gaming & cocktail showdown</option>
+                            <option value="88">Cozy bookstore crawl & cappuccino</option>
+                            <option value="97">Live music gig & wild karaoke</option>
+                            <option value="90">Stargazing on a secluded hilltop</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-heading font-bold text-gray-300 uppercase mb-2">2. Your Communication Style</label>
+                        <select id="calcComm" class="w-full bg-darkBase/80 border border-white/20 rounded-2xl px-4 py-3.5 text-sm font-semibold focus:border-neonPink focus:outline-none transition-all">
+                            <option value="5">Sends 100 memes and 4-minute voice notes</option>
+                            <option value="4">Spontaneous FaceTime calls without warning</option>
+                            <option value="3">Deep philosophical texts at 2 AM</option>
+                            <option value="4">Quick witty banter all day long</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-heading font-bold text-gray-300 uppercase mb-2">3. Unnegotiable Green Flag</label>
+                        <select id="calcFlag" class="w-full bg-darkBase/80 border border-white/20 rounded-2xl px-4 py-3.5 text-sm font-semibold focus:border-neonPink focus:outline-none transition-all">
+                            <option value="3">Kind to waiters & loves stray animals</option>
+                            <option value="2">Has a killer music playlist for every mood</option>
+                            <option value="4">Can handle my spicy food tolerance</option>
+                            <option value="3">Great listener with contagious laughter</option>
+                        </select>
+                    </div>
+
+                    <button onclick="calculateSpark()" class="w-full py-4 rounded-2xl font-heading font-extrabold text-sm uppercase tracking-wider bg-gradient-to-r from-neonPink via-sunsetOrange to-cyberYellow text-white shadow-neon-pink hover:scale-105 active:scale-95 transition-transform">
+                        Calculate My Match Spark 🔥
+                    </button>
+                </div>
+
+                <!-- Result Gauge Card -->
+                <div class="glass-card p-6 md:p-8 rounded-3xl text-center border border-white/20 flex flex-col items-center justify-center min-h-[300px]">
+                    <div id="sparkResultContainer">
+                        <div class="w-32 h-32 rounded-full border-4 border-dashed border-neonPink flex items-center justify-center p-2 mx-auto relative animate-spin-slow">
+                            <div class="w-full h-full rounded-full bg-gradient-to-tr from-neonPink/40 to-brightCyan/40 flex items-center justify-center">
+                                <i class="fa-solid fa-heart-pulse text-4xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 font-heading font-black text-2xl text-white">Ready for Chemistry?</div>
+                        <p class="text-xs text-gray-400 mt-1">Select your vibes on the left and tap calculate.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DATE NIGHT ROULETTE (PLAYFUL FEATURE) -->
+    <section id="roulette" class="py-20 px-4 md:px-8 bg-cardDark/30 relative z-10 border-t border-white/10">
+        <div class="max-w-4xl mx-auto text-center">
+            
+            <span class="px-4 py-1.5 rounded-full bg-brightCyan/20 text-brightCyan border border-brightCyan text-xs font-heading font-bold uppercase tracking-wider">
+                🎲 Spontaneous Icebreaker
+            </span>
+            <h2 class="font-heading font-black text-3xl md:text-5xl text-white mt-3">
+                DATE NIGHT <span class="gradient-text-cyan">ROULETTE</span>
+            </h2>
+            <p class="text-gray-300 mt-2 text-sm md:text-base max-w-lg mx-auto">
+                Can't decide where to go or what to do? Spin the Hamsafar wheel for an unforgettable first encounter!
+            </p>
+
+            <div class="mt-10 glass-panel p-8 md:p-10 rounded-[36px] border border-white/15 max-w-xl mx-auto relative shadow-neon-cyan">
+                <div id="rouletteDisplay" class="min-h-[140px] flex flex-col items-center justify-center">
+                    <div class="text-5xl mb-3" id="rouletteIcon">🎯</div>
+                    <h3 class="font-heading font-extrabold text-xl md:text-2xl text-white" id="rouletteTitle">
+                        "Spin to reveal your perfect date!"
+                    </h3>
+                    <p class="text-xs md:text-sm text-cyberYellow mt-2 font-semibold" id="rouletteVibe">
+                        High energy • Zero awkwardness
+                    </p>
+                </div>
+
+                <div class="mt-8 flex justify-center">
+                    <button id="spinBtn" onclick="spinRoulette()" class="px-8 py-4 rounded-full font-heading font-bold text-sm tracking-wider uppercase bg-gradient-to-r from-brightCyan via-sunsetOrange to-neonPink text-black font-extrabold shadow-neon-cyan hover:scale-110 active:scale-95 transition-all flex items-center gap-3">
+                        <i class="fa-solid fa-dice-five text-xl"></i> Spin The Wheel!
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SUCCESS STORIES / TESTIMONIALS -->
+    <section class="py-20 px-4 md:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-sunsetOrange font-heading font-bold text-xs uppercase tracking-widest">Real Romance</span>
+                <h2 class="font-heading font-black text-3xl md:text-5xl text-white mt-2">
+                    THEY FOUND THEIR <span class="gradient-text-fire">HAMSAFAR</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Story 1 -->
+                <div class="glass-card p-6 rounded-3xl border border-neonPink/30 hover:border-neonPink transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=120&auto=format&fit=crop&q=80" class="w-14 h-14 rounded-2xl object-cover border-2 border-neonPink" alt="Couple">
+                        <div>
+                            <h4 class="font-heading font-bold text-base text-white">Sameer & Priya</h4>
+                            <p class="text-xs text-brightCyan">Together 14 Months • Mumbai</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 italic">
+                        "We matched through the 'Chai Dates' hub. What was supposed to be a quick 20-minute coffee turned into a 6-hour walk along Marine Drive. Hamsafar's vibe check is real!"
+                    </p>
+                    <div class="mt-4 flex text-cyberYellow text-xs gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="glass-card p-6 rounded-3xl border border-brightCyan/30 hover:border-brightCyan transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=120&auto=format&fit=crop&q=80" class="w-14 h-14 rounded-2xl object-cover border-2 border-brightCyan" alt="Couple">
+                        <div>
+                            <h4 class="font-heading font-bold text-base text-white">Aditya & Devika</h4>
+                            <p class="text-xs text-neonPink">Engaged! • Bengaluru</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 italic">
+                        "Both of us hated typical swipe apps where no one talks. The Hamsafar Spark Meter predicted 99% compatibility and it was literally love at first banter."
+                    </p>
+                    <div class="mt-4 flex text-cyberYellow text-xs gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="glass-card p-6 rounded-3xl border border-cyberYellow/30 hover:border-cyberYellow transition-all duration-300">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=120&auto=format&fit=crop&q=80" class="w-14 h-14 rounded-2xl object-cover border-2 border-cyberYellow" alt="Couple">
+                        <div>
+                            <h4 class="font-heading font-bold text-base text-white">Zayn & Meera</h4>
+                            <p class="text-xs text-cyberYellow">Together 8 Months • Delhi</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-300 italic">
+                        "The Date Night Roulette told us to go for midnight cheese naans in Old Delhi. Best decision ever. We're inseparable road-trip companions now."
+                    </p>
+                    <div class="mt-4 flex text-cyberYellow text-xs gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION BANNER -->
+    <section class="py-16 px-4 md:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto rounded-[40px] p-8 md:p-14 bg-gradient-to-r from-neonPink via-electricPurple to-sunsetOrange relative overflow-hidden shadow-neon-pink">
+            <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-cyberYellow/20 rounded-full blur-2xl"></div>
+            
+            <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+                <div class="max-w-xl">
+                    <h2 class="font-heading font-black text-3xl md:text-5xl text-white leading-tight">
+                        STOP WAITING.<br>YOUR HAMSAFAR IS ONE SWIPE AWAY.
+                    </h2>
+                    <p class="text-white/90 text-base md:text-lg mt-3">
+                        Join millions of vibrant hearts matching on authentic chemistry today.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <button onclick="openModal('signupModal')" class="px-8 py-4 rounded-2xl font-heading font-extrabold text-sm uppercase tracking-wider bg-white text-darkBase hover:bg-cyberYellow hover:text-black transition-all shadow-xl hover:scale-105 active:scale-95">
+                        Create Free Profile ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-16 pb-12 px-4 md:px-8 glass-panel border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+            
+            <!-- Brand Column -->
+            <div class="lg:col-span-2 space-y-4">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-neonPink to-cyberYellow p-0.5">
+                        <div class="w-full h-full bg-darkBase rounded-[10px] flex items-center justify-center">
+                            <i class="fa-solid fa-fire-flame-curved text-xl text-neonPink"></i>
+                        </div>
+                    </div>
+                    <span class="font-heading font-black text-2xl tracking-wider text-white">HAMSAFAR<span class="text-neonPink">.</span></span>
+                </a>
+                <p class="text-gray-400 text-sm max-w-sm">
+                    The modern, high-energy dating and companion platform designed for real sparks, safe connections, and memorable dates.
+                </p>
+                <div class="flex gap-3 pt-2">
+                    <a href="#" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gray-300 hover:text-neonPink hover:border-neonPink transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gray-300 hover:text-brightCyan hover:border-brightCyan transition-all"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gray-300 hover:text-sunsetOrange hover:border-sunsetOrange transition-all"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full glass-card flex items-center justify-center text-gray-300 hover:text-cyberYellow hover:border-cyberYellow transition-all"><i class="fa-brands fa-spotify"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-heading font-bold text-sm text-white uppercase tracking-wider mb-4">Discover</h4>
+                <ul class="space-y-2.5 text-sm text-gray-400">
+                    <li><a href="#discover" class="hover:text-neonPink transition-colors">Spark Swipe Deck</a></li>
+                    <li><a href="#vibes" class="hover:text-brightCyan transition-colors">Vibe Hubs</a></li>
+                    <li><a href="#spark-calculator" class="hover:text-cyberYellow transition-colors">Chemistry Meter</a></li>
+                    <li><a href="#roulette" class="hover:text-sunsetOrange transition-colors">Date Roulette</a></li>
+                </ul>
+            </div>
+
+            <!-- Safety & Guidelines -->
+            <div>
+                <h4 class="font-heading font-bold text-sm text-white uppercase tracking-wider mb-4">Safety & Trust</h4>
+                <ul class="space-y-2.5 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-white transition-colors">Verified Profile Check</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Community Guidelines</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Safe Dating Tips</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Security Center</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div>
+                <h4 class="font-heading font-bold text-sm text-white uppercase tracking-wider mb-4">Stay In The Loop</h4>
+                <p class="text-xs text-gray-400 mb-3">Get exclusive dating tips, city party invites, and vibe updates.</p>
+                <form onsubmit="handleNewsletter(event)" class="space-y-2">
+                    <input type="email" required placeholder="Enter your email" class="w-full bg-white/10 border border-white/20 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-neonPink">
+                    <button type="submit" class="w-full py-2.5 rounded-xl font-heading font-bold text-xs uppercase bg-neonPink hover:bg-sunsetOrange text-white transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <div>© 2025 Hamsafar Dating Technologies Inc. Built with passion & vibrant vibes.</div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-400">Terms of Service</a>
+                <a href="#" class="hover:text-gray-400">Cookie Settings</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MATCH CELEBRATION MODAL -->
+    <div id="matchModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkBase/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative w-full max-w-lg glass-panel p-8 rounded-[40px] border-2 border-neonPink shadow-neon-pink text-center transform scale-95 transition-transform duration-300" id="matchModalContent">
+            
+            <div class="text-6xl animate-bounce mb-2">🔥</div>
+            
+            <h2 class="font-heading font-black text-4xl md:text-5xl tracking-tight text-white mb-1">
+                IT'S A <span class="gradient-text-fire">SPARK!</span>
+            </h2>
+            <p class="text-brightCyan font-semibold text-sm" id="matchSubtext">
+                You and Aanya dig the same high-voltage vibe!
+            </p>
+
+            <div class="flex justify-center items-center gap-4 my-8">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80" class="w-24 h-24 rounded-full object-cover border-4 border-cyberYellow shadow-lg" alt="You">
+                    <span class="absolute -bottom-1 -right-1 bg-cyberYellow text-darkBase text-xs font-bold px-2 py-0.5 rounded-full">YOU</span>
+                </div>
+                <div class="w-12 h-12 rounded-full bg-neonPink flex items-center justify-center text-white text-xl animate-pulse">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="relative">
+                    <img id="matchedUserImg" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&auto=format&fit=crop&q=80" class="w-24 h-24 rounded-full object-cover border-4 border-neonPink shadow-lg" alt="Match">
+                    <span class="absolute -bottom-1 -right-1 bg-neonPink text-white text-xs font-bold px-2 py-0.5 rounded-full" id="matchedUserTag">99%</span>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <button onclick="sendQuickDm()" class="w-full py-4 rounded-2xl font-heading font-extrabold text-sm uppercase tracking-wider bg-gradient-to-r from-neonPink to-sunsetOrange text-white shadow-neon-pink hover:scale-105 active:scale-95 transition-all">
+                    <i class="fa-solid fa-paper-plane mr-2"></i> Send First Spark DM
+                </button>
+                <button onclick="closeModal('matchModal')" class="w-full py-3.5 rounded-2xl font-heading font-bold text-xs uppercase tracking-wider glass-card text-gray-300 hover:text-white transition-all">
+                    Keep Swiping
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUTH / SIGNUP MODAL -->
+    <div id="signupModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkBase/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative w-full max-w-md glass-panel p-8 rounded-[36px] border border-white/20 shadow-neon-purple text-left transform scale-95 transition-transform duration-300">
+            
+            <button onclick="closeModal('signupModal')" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-neonPink transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-fire text-neonPink text-xl"></i>
+                <span class="font-heading font-black text-xl text-white">Join HAMSAFAR</span>
+            </div>
+            <p class="text-xs text-gray-400 mb-6">Create your profile in 30 seconds. No awkward biodata required.</p>
+
+            <form onsubmit="handleSignupSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[11px] font-heading font-bold uppercase text-gray-300 mb-1">Your Name / Alias</label>
+                    <input type="text" required placeholder="e.g. Maya or Kabir" class="w-full bg-darkBase/90 border border-white/20 rounded-xl px-4 py-3 text-sm focus:border-neonPink focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-heading font-bold uppercase text-gray-300 mb-1">Email or Phone</label>
+                    <input type="text" required placeholder="name@vibe.com" class="w-full bg-darkBase/90 border border-white/20 rounded-xl px-4 py-3 text-sm focus:border-neonPink focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-heading font-bold uppercase text-gray-300 mb-1">Your Core Dating Vibe</label>
+                    <select class="w-full bg-darkBase/90 border border-white/20 rounded-xl px-4 py-3 text-sm focus:border-neonPink focus:outline-none text-white">
+                        <option>☕ Chai dates & 2am deep talks</option>
+                        <option>🪩 Underground music & concerts</option>
+                        <option>🌮 Food street hopper & foodie</option>
+                        <option>🌌 Spontaneous midnight roadtrips</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl font-heading font-extrabold text-xs uppercase tracking-wider bg-gradient-to-r from-neonPink via-sunsetOrange to-cyberYellow text-white shadow-neon-pink hover:scale-105 active:scale-95 transition-all mt-4">
+                    Ignite Profile Free ✨
+                </button>
+            </form>
+
+            <p class="text-[10px] text-gray-400 text-center mt-4">
+                By joining, you agree to our vibrant respect code and safe dating pledge.
+            </p>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-darkBase/90 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative w-full max-w-md glass-panel p-8 rounded-[36px] border border-white/20 text-left transform scale-95 transition-transform duration-300">
+            
+            <button onclick="closeModal('loginModal')" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-neonPink transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="font-heading font-black text-2xl text-white mb-1">Welcome Back!</h3>
+            <p class="text-xs text-gray-400 mb-6">Enter your credentials to continue matching.</p>
+
+            <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[11px] font-heading font-bold uppercase text-gray-300 mb-1">Registered Email</label>
+                    <input type="email" required placeholder="your@email.com" class="w-full bg-darkBase/90 border border-white/20 rounded-xl px-4 py-3 text-sm focus:border-brightCyan focus:outline-none">
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-heading font-bold uppercase text-gray-300 mb-1">Passcode / OTP</label>
+                    <input type="password" required placeholder="••••••••" class="w-full bg-darkBase/90 border border-white/20 rounded-xl px-4 py-3 text-sm focus:border-brightCyan focus:outline-none">
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl font-heading font-extrabold text-xs uppercase tracking-wider bg-gradient-to-r from-brightCyan to-electricPurple text-white shadow-neon-cyan hover:scale-105 active:scale-95 transition-all">
+                    Unlock Sparks 🚀
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Sample Profiles Database
+        const profiles = [
+            {
+                name: "Ananya",
+                age: 23,
+                city: "South Mumbai",
+                distance: "3 km away",
+                bio: "Art gallery wanderer, filter coffee purist, and secretly a fierce Mario Kart champion. Looking for someone who doesn't flake on plans.",
+                tags: ["🎨 Modern Art", "☕ Pour-Over", "🏎️ Mario Kart"],
+                music: "Prateek Kuhad / Tame Impala",
+                image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80",
+                verified: true,
+                sparkScore: "98%"
+            },
+            {
+                name: "Dev",
+                age: 26,
+                city: "Indiranagar, BLR",
+                distance: "5 km away",
+                bio: "Indie game designer who knows the best underground ramen spots. Let's make an impromptu road trip to the hills.",
+                tags: ["🎮 Game Dev", "🍜 Spicy Ramen", "🏔️ Mountain Hikes"],
+                music: "Fred Again.. / Seedhe Maut",
+                image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&auto=format&fit=crop&q=80",
+                verified: true,
+                sparkScore: "94%"
+            },
+            {
+                name: "Meher",
+                age: 24,
+                city: "Hauz Khas, DEL",
+                distance: "1.8 km away",
+                bio: "Architect by day, sunset vinyl collector by night. If you love 90s retro synthesizers, we are already best friends.",
+                tags: ["📐 Architecture", "📻 Vinyls", "🥐 Bakeries"],
+                music: "The Local Train / Dua Lipa",
+                image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&auto=format&fit=crop&q=80",
+                verified: true,
+                sparkScore: "96%"
+            },
+            {
+                name: "Kabir",
+                age: 27,
+                city: "Bandra West, BOM",
+                distance: "4.2 km away",
+                bio: "Documentary photographer & dog parent. Will make you the best handmade sourdough pizza you've ever had.",
+                tags: ["📷 Leica Shots", "🍕 Sourdough", "🐕 Golden Retrievers"],
+                music: "Cigarettes After Sex / Lifafa",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80",
+                verified: true,
+                sparkScore: "99%"
+            },
+            {
+                name: "Sara",
+                age: 22,
+                city: "Koregaon Park, PUN",
+                distance: "6.5 km away",
+                bio: "Stand-up comedy fanatic & astronomy nerd. Can argue for 2 hours about why Interstellar is the greatest film in history.",
+                tags: ["🔭 Stargazing", "🎙️ Open Mics", "🌮 Street Tacos"],
+                music: "Hans Zimmer / AP Dhillon",
+                image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&auto=format&fit=crop&q=80",
+                verified: true,
+                sparkScore: "97%"
+            }
+        ];
+
+        let currentCardIndex = 0;
+
+        // Render Stack of Profiles
+        function renderDeck() {
+            const container = document.getElementById('cardContainer');
+            container.innerHTML = '';
+
+            if (currentCardIndex >= profiles.length) {
+                container.innerHTML = `
+                    <div class="glass-panel p-8 rounded-[32px] text-center border border-neonPink shadow-neon-pink w-full max-w-sm">
+                        <div class="text-5xl mb-4">✨</div>
+                        <h3 class="font-heading font-black text-2xl text-white">You've Caught Every Vibe!</h3>
+                        <p class="text-xs text-gray-300 mt-2">New active singles in your zone are being refreshed every 10 seconds.</p>
+                        <button onclick="resetDeck()" class="mt-6 px-6 py-3 rounded-full font-heading text-xs font-bold uppercase bg-gradient-to-r from-neonPink to-cyberYellow text-white shadow-lg hover:scale-105 transition-transform">
+                            Reload Profile Deck 🔄
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            // Render top 2 visible cards for smooth depth stack
+            for (let i = Math.min(profiles.length - 1, currentCardIndex + 1); i >= currentCardIndex; i--) {
+                const p = profiles[i];
+                const isTop = i === currentCardIndex;
+                
+                const card = document.createElement('div');
+                card.className = `profile-card absolute w-full max-w-sm h-[520px] rounded-[32px] overflow-hidden border-2 border-white/20 bg-cardDark shadow-2xl ${
+                    isTop ? 'z-20 scale-100' : 'z-10 scale-95 translate-y-3 opacity-60'
+                }`;
+                card.id = isTop ? 'topCard' : `card-${i}`;
+
+                card.innerHTML = `
+                    <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover pointer-events-none">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBase via-darkBase/40 to-transparent flex flex-col justify-end p-6 pointer-events-none">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-gradient-to-r from-neonPink to-sunsetOrange px-3 py-1 rounded-full text-xs font-black uppercase text-white shadow-neon-pink">
+                                🔥 ${p.sparkScore} Spark
+                            </span>
+                            <span class="glass-panel px-3 py-1 rounded-full text-xs font-bold text-brightCyan">
+                                📍 ${p.city}
+                            </span>
+                        </div>
+                        <h3 class="font-heading font-black text-3xl text-white flex items-center gap-2">
+                            ${p.name}, ${p.age} 
+                            ${p.verified ? '<i class="fa-solid fa-circle-check text-brightCyan text-xl"></i>' : ''}
+                        </h3>
+                        <p class="text-xs text-gray-200 mt-2 font-medium line-clamp-3">
+                            "${p.bio}"
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            ${p.tags.map(tag => `<span class="px-2.5 py-1 rounded-lg bg-white/15 text-[11px] font-bold text-cyberYellow">${tag}</span>`).join('')}
+                        </div>
+                        <div class="mt-3 flex items-center gap-2 text-[11px] text-gray-300">
+                            <i class="fa-solid fa-headphones text-neonPink"></i>
+                            <span>${p.music}</span>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            }
+        }
+
+        // Swipe Functionality
+        function handleSwipe(direction) {
+            const topCard = document.getElementById('topCard');
+            if (!topCard) return;
+
+            const profile = profiles[currentCardIndex];
+
+            if (direction === 'right' || direction === 'super') {
+                topCard.classList.add(direction === 'right' ? 'swipe-right' : 'swipe-super');
+                
+                // Trigger match celebration on like / super
+                setTimeout(() => {
+                    triggerMatch(profile);
+                }, 200);
+
+            } else {
+                topCard.classList.add('swipe-left');
+            }
+
+            setTimeout(() => {
+                currentCardIndex++;
+                renderDeck();
+            }, 300);
+        }
+
+        function resetDeck() {
+            currentCardIndex = 0;
+            renderDeck();
+        }
+
+        // Trigger Confetti and Match Modal
+        function triggerMatch(profile) {
+            // High Energy Confetti Cannon
+            confetti({
+                particleCount: 80,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#FF007F', '#00F5D4', '#FFE600', '#8A2BE2', '#FF4500']
+            });
+
+            const matchedImg = document.getElementById('matchedUserImg');
+            const matchedTag = document.getElementById('matchedUserTag');
+            const matchSubtext = document.getElementById('matchSubtext');
+
+            if (matchedImg && profile) {
+                matchedImg.src = profile.image;
+                matchedTag.innerText = profile.sparkScore;
+                matchSubtext.innerText = `You and ${profile.name} share phenomenal vibe harmony!`;
+            }
+
+            openModal('matchModal');
+        }
+
+        function triggerHeroMatch() {
+            triggerMatch(profiles[4]);
+        }
+
+        // Modal Open / Close Helpers
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            const content = modal.querySelector('div');
+            if (content) {
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            const content = modal.querySelector('div');
+            if (content) {
+                content.classList.remove('scale-100');
+                content.classList.add('scale-95');
+            }
+        }
+
+        function sendQuickDm() {
+            alert("🚀 First Spark Message Sent! You can now chat in real-time.");
+            closeModal('matchModal');
+        }
+
+        // Date Night Roulette Items
+        const rouletteDates = [
+            { icon: "🍕", title: "Midnight Woodfired Pizza & Vinyl Jam", vibe: "Cozy • Casual Chemistry" },
+            { icon: "🏎️", title: "Go-Kart Racing & Street Boba Battle", vibe: "High Energy • Playful Rivalry" },
+            { icon: "🌌", title: "Rooftop Stargazing & Acoustic Playlist", vibe: "Romantic • Deep Conversations" },
+            { icon: "🪩", title: "Secret Underground Techno Club & Street Chai", vibe: "Wild • Dance Energy" },
+            { icon: "🍦", title: "Late Night Gelato Crawl & 3 AM Driving", vibe: "Spontaneous • Chill Vibes" },
+            { icon: "🎨", title: "Sip & Paint Glow-in-the-dark Workshop", vibe: "Creative • Fun Connection" }
+        ];
+
+        function spinRoulette() {
+            const btn = document.getElementById('spinBtn');
+            const icon = document.getElementById('rouletteIcon');
+            const title = document.getElementById('rouletteTitle');
+            const vibe = document.getElementById('rouletteVibe');
+
+            btn.disabled = true;
+            let counter = 0;
+            const spinInterval = setInterval(() => {
+                const randomItem = rouletteDates[Math.floor(Math.random() * rouletteDates.length)];
+                icon.innerText = randomItem.icon;
+                title.innerText = `"${randomItem.title}"`;
+                vibe.innerText = randomItem.vibe;
+                counter++;
+
+                if (counter > 14) {
+                    clearInterval(spinInterval);
+                    btn.disabled = false;
+                    confetti({
+                        particleCount: 50,
+                        spread: 60,
+                        origin: { y: 0.7 },
+                        colors: ['#00F5D4', '#FFE600', '#FF007F']
+                    });
+                }
+            }, 80);
+        }
+
+        // Spark Meter Calculator
+        function calculateSpark() {
+            const baseScore = parseInt(document.getElementById('calcDateStyle').value);
+            const commScore = parseInt(document.getElementById('calcComm').value);
+            const flagScore = parseInt(document.getElementById('calcFlag').value);
+
+            let totalPercent = Math.min(99, Math.max(82, baseScore - commScore + flagScore + Math.floor(Math.random() * 4)));
+
+            const resultContainer = document.getElementById('sparkResultContainer');
+            resultContainer.innerHTML = `
+                <div class="relative w-36 h-36 mx-auto flex items-center justify-center">
+                    <div class="w-full h-full rounded-full bg-gradient-to-tr from-neonPink via-sunsetOrange to-cyberYellow p-1 shadow-neon-pink animate-pulse">
+                        <div class="w-full h-full bg-darkBase rounded-full flex flex-col items-center justify-center">
+                            <span class="font-heading font-black text-4xl text-transparent bg-clip-text bg-gradient-to-r from-cyberYellow to-neonPink">${totalPercent}%</span>
+                            <span class="text-[10px] text-brightCyan font-bold uppercase tracking-widest">Spark Level</span>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="font-heading font-bold text-xl text-white mt-4">Electric Connection! ⚡</h4>
+                <p class="text-xs text-gray-300 mt-1 max-w-xs mx-auto">
+                    Your energy aligns seamlessly with our most vibrant singles in your city.
+                </p>
+                <button onclick="openModal('signupModal')" class="mt-4 px-6 py-2.5 rounded-full font-heading text-xs font-bold uppercase bg-gradient-to-r from-neonPink to-sunsetOrange text-white shadow-neon-pink hover:scale-105 transition-all">
+                    Meet Your ${totalPercent}% Matches
+                </button>
+            `;
+
+            confetti({
+                particleCount: 40,
+                spread: 50,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // Form Handlers
+        function handleSignupSubmit(e) {
+            e.preventDefault();
+            alert("🎉 Profile created successfully! Welcome to Hamsafar.");
+            closeModal('signupModal');
+            confetti();
+        }
+
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            alert("🚀 Logged in! Loading your spark feed...");
+            closeModal('loginModal');
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            alert("💌 Thank you for subscribing to Hamsafar Vibe Radar!");
+            e.target.reset();
+        }
+
+        function filterVibeAlert(name) {
+            alert(`✨ Filter applied: Showing singles who love "${name}"!`);
+            const discoverEl = document.getElementById('discover');
+            if (discoverEl) discoverEl.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function notifyLocation() {
+            alert("📍 Switched search radius to active metro cities!");
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDeck();
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const nav = document.getElementById('mainNav');
+                if (window.scrollY > 40) {
+                    nav.classList.add('bg-darkBase/95', 'shadow-2xl');
+                } else {
+                    nav.classList.remove('bg-darkBase/95', 'shadow-2xl');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
